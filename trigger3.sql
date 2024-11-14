@@ -24,7 +24,7 @@ BEGIN
         end if;
 EXCEPTION
          when e1 then
-                   raise_application_error (-20000,'Not allowed: a +b <=75');
+                   raise_application_error (-20000,'Not allowed: a +b <=75');--raising as this will halt the insertion
          when e2 then
                   raise_application_error (-20001,'Present Value of b less than previous value');
 END;
