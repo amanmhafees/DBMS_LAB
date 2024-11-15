@@ -16,27 +16,35 @@ END my_package;
 create or replace package body my_package as
     --creating the function inside package body
     FUNCTION sumneven (n number) return number is
-        i number:=2;
-        sum number:=0;
-        cnt number:=1;
+        i number :=2;
+        s number :=0;
+        cnt number :=1;
     BEGIN
-        while cnt<=n 
+        while cnt<=n   
             loop
-            sum := sum + i;
-            i := i + 2;
-            cnt := cnt + 1;
-        end loop;
-        return sum;
-    END sumneven;
+                s:=s+i;
+                i:=i+2;
+                cnt:=cnt+1;
+            end loop;
+        return s;
+    END;
 
-    PROCEDURE display_sumneven(N NUMBER) IS
-        sumN number;
+    --creating the procedure inside package body
+    PROCEDURE display_sumneven (n number) is
     BEGIN
-        sumN := sumneven(n);
-        dbms_output.put_line('sum= '|| sumN);
-    END display_sumneven;
+        dbms_output.put_line('SUM = ' || sumneven(n));
+    END;
 END my_package;
 /
 
----not running has compilation errors
+--package body created
+
+--calling the function and procedure
+declare
+    n number;
+begin
+    n:=&n;
+    my_package.display_sumneven(n);
+end;
+/
 
