@@ -15,6 +15,8 @@ CREATE TABLE vegetarian (
     FOREIGN KEY (stud_no) REFERENCES hostel_mess(stud_no)
 );
 
+
+
 CREATE TABLE non_vegetarian (
     stud_no NUMBER,
     name VARCHAR2(50),
